@@ -16,10 +16,12 @@ public class ProfessorConst {
             "}";
 
     static String Renzo = "{"+
-        "  \"nomeDoProfessor\": \"Renzo\",\n" +
-        "  \"horarioDeAtendimento\": \"17:00-21:00\",\n" +
-        "  \"periodo\": \"Noturno\",\n" +
-        "  \"sala\": \"27\",\n" +
-        "  \"predio\": [\"6\"]\n" +
-        "}";
-        }
+            "  \"nomeDoProfessor\": \"Renzo\",\n" +
+            "  \"horarioDeAtendimento\": \"17:00-21:00\",\n" +
+            "  \"periodo\": \"Noturno\",\n" +
+            "  \"sala\": \"27\",\n" +
+            "  \"predio\": [\"6\"]\n" +
+            "}";
+
+
+}

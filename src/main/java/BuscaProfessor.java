@@ -25,6 +25,8 @@ public class BuscaProfessor {
 
     public Professor buscaProfessor(String nome){
         String professorJson = professorService.busca(nome);
+        if(professorJson == "Professor não constado")
+            return null;
         JsonObject jsonObject = JsonParser.parseString(professorJson).getAsJsonObject();
         ArrayList<String> predio= convertePrediosEmArray(jsonObject.get("predio").getAsJsonArray());
         return new Professor(
