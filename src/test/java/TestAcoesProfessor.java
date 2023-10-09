@@ -12,39 +12,38 @@ import static org.junit.Assert.*;
 public class TestAcoesProfessor {
 
     ProfessorService service;
-    AcoesProfessor acoesProfessor;
+    BuscaProfessor acoesProfessor;
 
     @Before
     public void setup(){
         service = new MockProfessorService();
-        acoesProfessor = new AcoesProfessor(service);
+        acoesProfessor = new BuscaProfessor(service);
     }
     @Test
     public void TestBunscaInformacoesDoProfessor(){
-        Professor professor = acoesProfessor.buscaInformacoesDoProfessor("Soned");
+        Professor professor = acoesProfessor.buscaProfessor("Soned");
         List<String> predios = new ArrayList<>();
-        predios.add("1");
         predios.add("2");
 
         //Faz assertion
-        assertEquals("Soned", professor.getNome());
-        assertEquals("10:00a16:00" , professor.getHorarioDeAtendimento());
+        assertEquals("Soned", professor.getNomeDoProfessor());
+        assertEquals("10:00-16:00" , professor.getHorarioDeAtendimento());
         assertEquals("integral", professor.getPeriodo());
-        assertEquals(1, professor.getSala());
+        assertEquals(7, professor.getSala());
         assertEquals(predios, professor.getPredio());
     }
 
     @Test
     public void TestbuscaHorarioDoProfessor(){
-        String horarioProfessor = acoesProfessor.buscaHorarioDoProfessor("Cris");
+        String horarioProfessor = acoesProfessor.buscaHorario("Cris");
 
-        assertEquals("10:00a16:00" , horarioProfessor);
+        assertEquals("10:00-16:00" , horarioProfessor);
     }
 
     @Test
     public void TestconvertePrediosEmArray(){
         JsonArray predioProfessor = JsonParser
-                .parseString(ProfessorConst.Renso)
+                .parseString(ProfessorConst.Renzo)
                 .getAsJsonObject()
                 .get("predio")
                 .getAsJsonArray();

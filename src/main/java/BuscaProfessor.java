@@ -1,3 +1,4 @@
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
@@ -12,8 +13,8 @@ public class BuscaProfessor {
         this.professorService = service;
     }
 
-    List<String> convertePrediosEmArray(JsonArray prediosjson){
-        List<String> predios = new ArrayList<>();
+    ArrayList<String> convertePrediosEmArray(JsonArray prediosjson){
+        ArrayList<String> predios = new ArrayList<>();
 
         for(int i = 0; i < prediosjson.size(); i++) {
             String numero = prediosjson.get(i).getAsString();
@@ -25,7 +26,7 @@ public class BuscaProfessor {
     public Professor buscaProfessor(String nome){
         String professorJson = professorService.busca(nome);
         JsonObject jsonObject = JsonParser.parseString(professorJson).getAsJsonObject();
-        ArrayList<String> predio= convertePrediosEmArray(jsonObject.get("predio").getAsJsonArray())
+        ArrayList<String> predio= convertePrediosEmArray(jsonObject.get("predio").getAsJsonArray());
         return new Professor(
                 jsonObject.get("nomeDoProfessor").getAsString(),
                 jsonObject.get("horarioDeAtendimento").getAsString(),

@@ -15,8 +15,8 @@ public class ProfessorConst {
             "  \"predio\": [\"1\"]\n" +
             "}";
 
-    static String Renso = "{"+
-        "  \"nomeDoProfessor\": \"Renso\",\n" +
+    static String Renzo = "{"+
+        "  \"nomeDoProfessor\": \"Renzo\",\n" +
         "  \"horarioDeAtendimento\": \"17:00-21:00\",\n" +
         "  \"periodo\": \"Noturno\",\n" +
         "  \"sala\": \"27\",\n" +

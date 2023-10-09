@@ -1,17 +1,21 @@
 public class MockProfessorService implements ProfessorService {
 
     @Override
-    public String buscaProfessor(String nome) {
+    public String busca(String nome) {
 
         if (nome == "Soned") {
             return ProfessorConst.Soned;
         } else if (nome == "Cris") {
             return ProfessorConst.Cris;
         } else if (nome == "Renso") {
-            return ProfessorConst.Renso;
+            return ProfessorConst.Renzo;
         } else {
             return "Professor não constado";
         }
     }
 
+    @Override
+    public boolean professorExistente(String nome) {
+        return false;
+    }
 }

@@ -1,5 +1,6 @@
 import com.google.gson.JsonArray;
 
+import java.util.ArrayList;
 import java.util.List;
 
 // import java.util.ArrayList;
@@ -11,7 +12,7 @@ public class Professor{
     private int sala;
     private List<String> predio;
 
-    public Professor(String nomeDoProfessor, String horarioDeAtendimento, String periodo, int sala, JsonArray predio) {
+    public Professor(String nomeDoProfessor, String horarioDeAtendimento, String periodo, int sala, ArrayList predio) {
         this.nomeDoProfessor = nomeDoProfessor;
         this.horarioDeAtendimento = horarioDeAtendimento;
         this.periodo = periodo;
@@ -51,11 +52,11 @@ public class Professor{
         this.sala = sala;
     }
 
-    public JsonArray getPredio() {
+    public List<String> getPredio() {
         return predio;
     }
 
-    public void setPredio(JsonArray predio) {
+    public void setPredio(List<String> predio) {
         this.predio = predio;
     }
 }
