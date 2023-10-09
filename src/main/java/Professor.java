@@ -1,4 +1,7 @@
 import com.google.gson.JsonArray;
+
+import java.util.List;
+
 // import java.util.ArrayList;
 public class Professor{
 
@@ -6,7 +9,7 @@ public class Professor{
     private String horarioDeAtendimento;
     private String periodo;
     private int sala;
-    private JsonArray predio;
+    private List<String> predio;
 
     public Professor(String nomeDoProfessor, String horarioDeAtendimento, String periodo, int sala, JsonArray predio) {
         this.nomeDoProfessor = nomeDoProfessor;

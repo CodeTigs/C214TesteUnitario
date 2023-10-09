@@ -1,6 +1,9 @@
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BuscaProfessor {
 
     ProfessorService professorService;
@@ -9,16 +12,26 @@ public class BuscaProfessor {
         this.professorService = service;
     }
 
+    List<String> convertePrediosEmArray(JsonArray prediosjson){
+        List<String> predios = new ArrayList<>();
+
+        for(int i = 0; i < prediosjson.size(); i++) {
+            String numero = prediosjson.get(i).getAsString();
+            predios.add(numero);
+        }
+        return predios;
+    }
+
     public Professor buscaProfessor(String nome){
         String professorJson = professorService.busca(nome);
         JsonObject jsonObject = JsonParser.parseString(professorJson).getAsJsonObject();
-
+        ArrayList<String> predio= convertePrediosEmArray(jsonObject.get("predio").getAsJsonArray())
         return new Professor(
                 jsonObject.get("nomeDoProfessor").getAsString(),
                 jsonObject.get("horarioDeAtendimento").getAsString(),
                 jsonObject.get("periodo").getAsString(),
                 jsonObject.get("sala").getAsInt(),
-                jsonObject.get("predio").getAsJsonArray()
+                predio
         );
     }
 
