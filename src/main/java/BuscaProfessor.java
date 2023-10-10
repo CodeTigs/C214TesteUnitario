@@ -40,6 +40,9 @@ public class BuscaProfessor {
 
     public String buscaHorario(String nome){
         String professorJson = professorService.busca(nome);
+        if(professorJson == "Professor não constado"){
+            return null;
+        }
         JsonObject jsonObject = JsonParser.parseString(professorJson).getAsJsonObject();
 
         return jsonObject.get("horarioDeAtendimento").getAsString();
