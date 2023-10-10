@@ -9,7 +9,9 @@ public class MockProfessorService implements ProfessorService {
             return ProfessorConst.Cris;
         } else if (nome == "Renzo") {
             return ProfessorConst.Renzo;
-        } else {
+        }else if(nome == null){
+            return "Professor não constado";
+        }else {
             return "Professor não constado";
         }
     }
